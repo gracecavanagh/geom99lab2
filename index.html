@@ -1,58 +1,5 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>ArcGIS Maps SDK for JavaScript Tutorials: Display a map</title>
-    <style>
-      html,
-      body,
-      #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-      }
-    </style>
-    <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
-    <script src="https://js.arcgis.com/4.28/"></script>
-
-    <script>
-      require([
-        "esri/config",
-        "esri/WebMap",
-        "esri/views/MapView",
-        "esri/widgets/ScaleBar",
-        "esri/widgets/Legend"
-      ], function(esriConfig, WebMap, MapView, ScaleBar, Legend) {
-
-        esriConfig.apiKey = "AAPK95b19bfe96594bfeb54f86374bc796756JNZoAYzc0nzj6lsyqijvurGnoKEtqyxMW2Lzbxi0j8iR8PajH0KTjThGi94xRDV";
-
-        const webmap = new WebMap({
-        portalItem: {
-          id: "7f6225fc4a704c0a9ec64ca0dc2f0d13"
-          }
-        });
-
-        const view = new MapView({
-          container: "viewDiv",
-
-          map: map,
-          center: [-118.80500,34.02700],
-          zoom: 13,
-
-          map: webmap
-
-        });
-        
-      }); 
-    </script>
-  </head>
-  <body>
-    <div id="viewDiv"></div>
-  </body>
-</html>
-
-<!--<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
