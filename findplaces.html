@@ -1,58 +1,6 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>ArcGIS Developers Guide: Display a map (2D)</title>
-  <style>
-    html,
-    body,
-    #viewDiv {
-      padding: 0;
-      margin: 0;
-      height: 100%;
-      width: 100%;
-    }
-  </style>
-
-  <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/themes/light/main.css">
-  <script src="https://js.arcgis.com/4.19/"></script>
-
-  <script>
-    require([
-     "esri/config",
-      "esri/Map",
-      "esri/views/MapView"
-    ], function (esriConfig,Map, MapView) {
-
-      esriConfig.apiKey = "AAPKf62f4010b2b94add862b34a19067c65aVJ-JQHaka1GqDm90PrFgIZgneaJ1ukcwcntggsUawx4-KCXi2OWMcVLVWM_pbS9i";
-      const map = new Map({
-        basemap: "arcgis-topographic"
-      });
-
-      const view = new MapView({
-        map: map,
-        center: [-118.805, 34.027],
-        zoom: 13,
-        container: "viewDiv",
-        constraints: {
-          snapToZoom: false
-        }
-      });
-
-    });
-  </script>
-</head>
-
-<body>
-  <div id="viewDiv"></div>
-</body>
-
-</html>
-
-
-
-  <!--<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>ArcGIS Maps SDK for JavaScript Tutorials: Display a map</title>
@@ -90,7 +38,7 @@
         const view = new MapView({
           container: "viewDiv",
           map: map,
-          center: [18.9553, 69.6492], //Longitude, latitude
+          center: [18.9553, 69.6492], 
           zoom: 13
 
           places.forEach((p) => {
@@ -117,7 +65,7 @@
 
         const locatorUrl = "http://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer";
 
-        // Find places and add them to the map
+
         function findPlaces(category, pt) {
           locator
             .addressToLocations(locatorUrl, {
@@ -134,8 +82,8 @@
                 results.forEach((result) => {
                 view.graphics.add(
                   new Graphic({
-                    attributes: result.attributes, // Data attributes returned
-                    geometry: result.location, // Point returned
+                    attributes: result.attributes, 
+                    geometry: result.location, 
                     symbol: {
                       type: "simple-marker",
                       color: "#000000",
@@ -147,7 +95,7 @@
                     },
 
                     popupTemplate: {
-                      title: "{PlaceName}", // Data attribute names
+                      title: "{PlaceName}",
                       content: "{Place_addr}"
                     }
                   })
@@ -158,7 +106,7 @@
 
         }
 
-        // Search for places in center of map
+
         reactiveUtils.when(
           () => view.stationary,
           () => {
@@ -166,7 +114,7 @@
           }
         );
 
-        // Listen for category changes and find places
+
         select.addEventListener("change", (event) => {
           findPlaces(event.target.value, view.center);
         });
@@ -179,4 +127,4 @@
   <body>
     <div id="viewDiv"></div>
   </body>
-</html>--->
+</html>
