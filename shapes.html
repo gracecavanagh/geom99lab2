@@ -41,29 +41,30 @@
           snapToZoom: false
       }
 
-      const graphicsLayer = new GraphicsLayer({
+      const graphicsLayer = new GraphicsLayer(
         map.add(graphicsLayer);
-      });
+      );
 
       const point = {
       type: "point",
       longitude: -118.80657463861,
       latitude: 34.0005930608889
       };
-     const simpleMarkerSymbol = {
+      const simpleMarkerSymbol = {
         type: "simple-marker",
         color: [226, 119, 40],
         outline: {
             color: [255, 255, 255],
             width: 1
         }
-     };
-    
-     const pointGraphic = new Graphic({
+      };
+      
+      const pointGraphic = new Graphic({
         geometry: point,
         symbol: simpleMarkerSymbol
-     });
-     graphicsLayer.add(pointGraphic);
+      });
+      
+      graphicsLayer.add(pointGraphic);
     
      const polyline = {
         type: "polyline",
@@ -83,9 +84,9 @@
         geometry: polyline,
         symbol: simpleLineSymbol
      });
-     graphicsLayer.add(polylineGraphic);
-    
-     const polygon = {
+      graphicsLayer.add(polylineGraphic);
+      
+      const polygon = {
         type: "polygon",
         rings: [
             [-118.818984489994, 34.0137559967283],
@@ -94,7 +95,7 @@
             [-118.79596686535, 34.008564864635],
             [-118.808558110679, 34.0035027131376]
         ]
-     };
+      };
     
      const simpleFillSymbol = {
         type: "simple-fill",
@@ -120,10 +121,9 @@
     
         attributes: attributes,
         popupTemplate: popupTemplate
-    
      });
-     graphicsLayer.add(polygonGraphic);
-
+      graphicsLayer.add(polygonGraphic);
+    
     });
   </script>
 </head>
