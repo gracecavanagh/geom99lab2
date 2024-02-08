@@ -23,20 +23,51 @@
      "esri/config",
       "esri/Map",
       "esri/views/MapView"
-    ], function (esriConfig,Map, MapView) {
+      "esri/Graphic",
+      "esri/layers/GraphicsLayer"
+    ], function (esriConfig,Map,MapView,Graphic,GraphicsLayer) {
 
       esriConfig.apiKey = "AAPKf62f4010b2b94add862b34a19067c65aVJ-JQHaka1GqDm90PrFgIZgneaJ1ukcwcntggsUawx4-KCXi2OWMcVLVWM_pbS9i";
       const map = new Map({
         basemap: "arcgis-topographic"
       });
+      
+    const graphicsLayer = new GraphicsLayer();
+    map.add(graphicsLayer);
+    
+      const polygon = {
+      type: "polygon",
+      rings: [
+          [-118.818984489994, 34.0137559967283], //Longitude, latitude
+          [-118.806796597377, 34.0215816298725], //Longitude, latitude
+          [-118.791432890735, 34.0163883241613], //Longitude, latitude
+          [-118.79596686535, 34.008564864635],   //Longitude, latitude
+          [-118.808558110679, 34.0035027131376]  //Longitude, latitude
+        ]
+      };
+      const simpleFillSymbol = {
+        type: "simple-fill",
+        color: [227, 139, 79, 0.8],  // Orange, opacity 80%
+        outline: {
+        color: [255, 255, 255],
+        width: 1
+        }
+      };
 
-      const view = new MapView({
-        map: map,
-        center: [-118.805, 34.027],
-        zoom: 13,
-        container: "viewDiv",
-        constraints: {
-          snapToZoom: false
+      const polygonGraphic = new Graphic({
+        geometry: polygon,
+        symbol: simpleFillSymbol,
+      });
+      
+    graphicsLayer.add(polygonGraphic);
+      
+    const view = new MapView({
+      map: map,
+      center: [-118.805, 34.027],
+      zoom: 13,
+      container: "viewDiv",
+      constraints: {
+        snapToZoom: false
         }
       });
 
