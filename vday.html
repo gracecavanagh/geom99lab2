@@ -65,42 +65,42 @@
   
   
         function findPlaces(category, pt) {
-          locator
-            .addressToLocations(locatorUrl, {
-              location: pt,
-              categories: [category],
-              maxLocations: 25,
-              outFields: ["Place_addr", "PlaceName"]
-            })
-  
-            .then((results) => {
-              view.closePopup();
-              view.graphics.removeAll();
-  
-              results.forEach((result) => {
-                view.graphics.add(
-                    new Graphic({
-                        attributes: result.attributes, 
-                        geometry: result.location, 
-                        symbol: {
-                          type: "simple-marker",
-                          color: "#000000",
-                          size: "12px",
-                          outline: {
-                          color: "#ffffff",
-                          width: "2px"
-                        }
-                      },
-  
-                        popupTemplate: {
-                          title: "{PlaceName}",
-                          content: "{Place_addr}"
-                        }
-                    })
-                );
-            });
-          });
-      }
+            locator
+                .addressToLocations(locatorUrl, {
+                    location: pt,
+                    categories: [category],
+                    maxLocations: 25,
+                    outFields: ["Place_addr", "PlaceName"]
+                })
+          
+                .then((results) => {
+                    view.closePopup();
+                    view.graphics.removeAll();
+          
+                    results.forEach((result) => {
+                        view.graphics.add(
+                            new Graphic({
+                                attributes: result.attributes, 
+                                geometry: result.location, 
+                                symbol: {
+                                    type: "simple-marker",
+                                    color: "#000000",
+                                    size: "12px",
+                                    outline: {
+                                    color: "#ffffff",
+                                    width: "2px"
+                                   }
+                                },
+          
+                                popupTemplate: {
+                                    title: "{PlaceName}",
+                                    content: "{Place_addr}"
+                                }
+                            })
+                        );
+                    });
+                });
+            }
   
   
       reactiveUtils.when(
