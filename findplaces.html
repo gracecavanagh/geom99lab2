@@ -41,11 +41,12 @@
           center: [18.9553, 69.6492], 
           zoom: 13
             
-            places.forEach((p) => {
-              const option = document.createElement("option");
-              option.value = p;
-              option.innerHTML = p;
-              select.appendChild(option);
+            places.forEach(
+                (p) => {
+                    const option = document.createElement("option");
+                    option.value = p;
+                    option.innerHTML = p;
+                    select.appendChild(option);
         });
         
         const places = ["Choose a place type...", "Parks and Outdoors", "Coffee shop", "Gas station", "Food", "Hotel"];
