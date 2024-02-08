@@ -73,17 +73,10 @@
         latitude: 43.0072463
       };
       
-      //const simpleMarkerSymbol = {
-        //type: "simple-marker",
-        //color: [235,25,25],  // red
-        //outline: {
-          //color: [255, 255, 255], // White
-          //width: 1
-        //}
-      //};
+      //found at https://developers.arcgis.com/javascript/latest/sample-code/sandbox/?sample=styling-icon-fonts
       const textSymbol = {
           type: "text", // autocasts as new TextSymbol()
-          color: [235,25,25],  // red
+          color: [235,25,25, 1],  // red
           text: "\ue61d", // esri-icon-map-pin
           font: {
             // autocasts as new Font()
@@ -97,11 +90,6 @@
           geometry: point,
           symbol: textSymbol
         });
-      
-      //const pointGraphic = new Graphic({
-       // geometry: point,
-        //symbol: simpleMarkerSymbol
-      //});
     
     graphicsLayer.add(polygonGraphic);
 
