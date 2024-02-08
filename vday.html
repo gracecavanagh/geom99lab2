@@ -26,7 +26,7 @@
       "esri/rest/locator",
       "esri/Graphic",
       "esri/core/reactiveUtils"
-    ], function (esriConfig,Map, MapView, locator, Graphic, reactiveUtils) {
+      ], function (esriConfig,Map, MapView, locator, Graphic, reactiveUtils) {
 
       esriConfig.apiKey = "AAPKf62f4010b2b94add862b34a19067c65aVJ-JQHaka1GqDm90PrFgIZgneaJ1ukcwcntggsUawx4-KCXi2OWMcVLVWM_pbS9i";
       const map = new Map({
@@ -114,6 +114,7 @@
     select.addEventListener("change", (event) => {
       findPlaces(event.target.value, view.center);
     })
+  
 
   </script>
 
